@@ -1,0 +1,17 @@
+.navBar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.navBar .navBarLogo {
+}
+.navBar .searcherContainer {
+  width: 60%;
+}
+
+.navBar .navBarMenu {
+  width: 15%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
