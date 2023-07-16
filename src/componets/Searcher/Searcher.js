@@ -11,7 +11,6 @@ const Searcher = () => {
           <ListIcon fontSize={'large'} />
           <p className="searcherFilter">Filter</p>
         </IconButton>
-
         <TextField
           id="standard-basic"
           label="Standard"
