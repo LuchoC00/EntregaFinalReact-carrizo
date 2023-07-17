@@ -1,9 +1,6 @@
 .carousel {
   position: relative;
   overflow: hidden;
-
-  width: 600px;
-  height: 400px;
   margin: auto;
   background-color: rgba(150, 150, 150, 1);
 }

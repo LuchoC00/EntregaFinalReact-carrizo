@@ -3,7 +3,12 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Carousel.css';
 
-const Carousel = ({ cards = '', initialPos = 0 }) => {
+const Carousel = ({
+  cards = '',
+  initialPos = 0,
+  width = '100%',
+  height = '100%'
+}) => {
   const checkNextPos = cardPos => {
     if (cardPos > cards.length - 1) {
       setNextPos(cards.length > 1 ? 0 : null);
@@ -101,7 +106,7 @@ const Carousel = ({ cards = '', initialPos = 0 }) => {
   }, [currentPos, cards]);
 
   return (
-    <div className="carousel">
+    <div className="carousel" style={{ width: width, height: height }}>
       <div className="background">
         <p>Wait a moment</p>
         <p>Items are loading</p>
@@ -124,7 +129,7 @@ const Carousel = ({ cards = '', initialPos = 0 }) => {
         </button>
       )}
 
-      {cards.length > 1 && cards.length < 101 && (
+      {cards.length > 1 && cards.length < 30 && (
         <div className="pointContainers">
           {cards.map((card, index) => {
             return (
@@ -139,7 +144,7 @@ const Carousel = ({ cards = '', initialPos = 0 }) => {
           })}
         </div>
       )}
-      {cards.length >= 101 && (
+      {cards.length >= 30 && (
         <div className="pointContainers">
           <div className="pointPosition">{currentPos + 1}</div>
         </div>

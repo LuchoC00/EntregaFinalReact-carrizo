@@ -26,7 +26,7 @@ const SeasonOffers = () => {
 
   return (
     <div className="seasonOffers">
-      <Carousel cards={cartas} />
+      <Carousel cards={cartas} height="20rem" />
     </div>
   );
 };

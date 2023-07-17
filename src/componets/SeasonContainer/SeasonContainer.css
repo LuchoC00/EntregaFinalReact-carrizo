@@ -1,0 +1,14 @@
+.seasonContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.seasonContainer > .newSeasons {
+  width: 60%;
+}
+
+.seasonContainer > .seasonOffersContainer {
+  width: 30%;
+}
