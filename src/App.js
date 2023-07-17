@@ -6,20 +6,26 @@ import CartPage from './pages/CartPage/CartPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
+import DetailPage from './pages/DetailPage/DetailPage';
+import { ProductsProvier } from './contexts/ProductsContext';
 
 const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/category" element={<CategoryPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes>
-      </Router>
+      <ProductsProvier>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route exact path="/category" element={<CategoryPage />} />
+            <Route path="/category/:categoryId" element={<CategoryPage />} />
+            <Route path="/item/:itemId" element={<DetailPage />} />
+            <Route path="/search/:search" element={<SearchPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </Router>
+      </ProductsProvier>
     </div>
   );
 };

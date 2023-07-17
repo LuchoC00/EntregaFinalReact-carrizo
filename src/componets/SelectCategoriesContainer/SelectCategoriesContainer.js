@@ -1,16 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import CategoryItem from '../../componets/CategoryItem/CategoryItem';
+import './SelectCategoriesContainer.css';
 
 const SelectCategoriesContainer = () => {
-  const [datos, setDatos] = useState([]);
-
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(json => setDatos(json));
-  }, []);
+  const { datos } = useContext(ProductsContext);
   return (
-    <div className="SelectCategoriesContainer">
+    <div className="selectCategoriesContainer">
       {datos.map(dato => {
         return (
           <CategoryItem

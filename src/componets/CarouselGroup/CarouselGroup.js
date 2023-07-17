@@ -4,7 +4,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './CarouselGroup.css';
 
 const CarouselGroup = ({
-  cards = '',
+  cards = [],
   cardsDisplayCont = 5,
   cardGap = 5,
   isUnlockFreeMove = false

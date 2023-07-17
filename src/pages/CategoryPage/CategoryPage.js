@@ -1,10 +1,15 @@
 import Header from '../../componets/Header/Header';
 import CarouselGroup from '../../componets/CarouselGroup/CarouselGroup';
+import SelectCategoriesContainer from '../../componets/SelectCategoriesContainer/SelectCategoriesContainer';
 import CategoryFilteredContainer from '../../componets/CategoryFilteredContainer/CategoryFilteredContainer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import './CategoryPage.css';
+import { useParams } from 'react-router-dom';
 
 const CategoryPage = () => {
+  const { datos } = useContext(ProductsContext);
+  const pageId = useParams();
   const [categorySelected, setCategorySelected] = useState(null);
   const [isValidCategory, SetIsValidCategory] = useState(false);
 
@@ -13,12 +18,11 @@ const CategoryPage = () => {
   return (
     <div className="categoryPage">
       <Header />
-      {!categorySelected && <CategoryFilteredContainer />}
-      {categorySelected}
-      <div className="categoryFilteredContainer">
-        <CarouselGroup />
-        <div className="categoryFilteredItemList">{}</div>
-      </div>
+      {!pageId?.categoryId ? (
+        <SelectCategoriesContainer />
+      ) : (
+        <CategoryFilteredContainer />
+      )}
     </div>
   );
 };
