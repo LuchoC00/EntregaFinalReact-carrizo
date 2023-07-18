@@ -4,10 +4,10 @@ import CategoryItem from '../../componets/CategoryItem/CategoryItem';
 import './SelectCategoriesContainer.css';
 
 const SelectCategoriesContainer = () => {
-  const { datos } = useContext(ProductsContext);
+  const { category, datos } = useContext(ProductsContext);
   return (
     <div className="selectCategoriesContainer">
-      {datos.map(dato => {
+      {category?.map(dato => {
         return (
           <CategoryItem
             item={dato}

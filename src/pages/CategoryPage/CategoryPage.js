@@ -21,7 +21,7 @@ const CategoryPage = () => {
       {!pageId?.categoryId ? (
         <SelectCategoriesContainer />
       ) : (
-        <CategoryFilteredContainer />
+        <CategoryFilteredContainer categoryId={pageId.categoryId} />
       )}
     </div>
   );

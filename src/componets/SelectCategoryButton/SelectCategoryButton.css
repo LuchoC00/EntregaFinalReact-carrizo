@@ -1,0 +1,46 @@
+.selectCategoryButton {
+  position: relative;
+  width: auto;
+}
+
+.selectCategoryButton > .buttonsContainers {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.selectCategoryButton > .buttonsContainers > button {
+  height: 2rem;
+  cursor: pointer;
+}
+.selectCategoryButton > .buttonsContainers > button > * {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: rgba(20, 20, 20, 0.85);
+}
+
+.selectCategoryButton > .floatingList {
+  background-color: rgba(200, 200, 200, 0.75);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectCategoryButton > .floatingList > .selectCategoryItem {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.75);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.selectCategoryButton > .floatingList > .selectCategoryItem:hover {
+  background-color: rgba(200, 200, 200, 0.75);
+  cursor: pointer;
+}

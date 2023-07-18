@@ -1,0 +1,61 @@
+.cartItem {
+  margin: 2rem auto;
+  width: 75%;
+  border: 2px solid rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  display: flex;
+}
+
+.cartItem > .cartItemImage {
+  height: 15rem;
+  width: 40%;
+  padding: 0.5rem;
+}
+
+.cartItem > .cartItemData {
+  margin: 0.5rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItem > .cartItemData > .cartItemTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.cartItem > .cartItemData > .cartItemSubTitles {
+  margin: 0.5rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+.cartItem > .cartItemData > .priceSelector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+.cartItem > .cartItemData > .priceSelector > .totalPrice {
+  width: 30%;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.cartItem > .cartItemData > .priceSelector > .cartSelectorContainer {
+  margin: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 4rem;
+}
+
+.cartItem > .cartItemData > .priceSelector > .cartSelectorContainer > button {
+  cursor: pointer;
+}
+
+.cartItem
+  > .cartItemData
+  > .priceSelector
+  > .cartSelectorContainer
+  > .cartSelectorTextField {
+  width: 40%;
+}

@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
-import SearchPage from './pages/SearchPage/SearchPage';
 import CartPage from './pages/CartPage/CartPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
@@ -19,7 +18,7 @@ const App = () => {
             <Route exact path="/category" element={<CategoryPage />} />
             <Route path="/category/:categoryId" element={<CategoryPage />} />
             <Route path="/item/:itemId" element={<DetailPage />} />
-            <Route path="/search/:search" element={<SearchPage />} />
+            <Route exact path="/item" element={<DetailPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />

@@ -1,8 +1,7 @@
 import React from 'react';
-import Searcher from '../Searcher/Searcher';
 import CartLogo from '../CartLogo/CartLogo';
-import DividerLine from '../DividerLine/DividerLine';
 import UserNavbarContainer from '../UserNavbarContainer/UserNavbarContainer';
+import SelectCategoryButton from '../SelectCategoryButton/SelectCategoryButton';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import './NavBar.css';
 
@@ -12,8 +11,8 @@ const NavBar = () => {
       <div className="navBarLogo">
         <LogoDevIcon />
       </div>
-      <div className="searcherContainer">
-        <Searcher />
+      <div className="middleContainer">
+        <SelectCategoryButton />
       </div>
       <div className="navBarMenu">
         <CartLogo />

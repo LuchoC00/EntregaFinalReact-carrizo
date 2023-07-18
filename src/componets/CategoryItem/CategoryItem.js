@@ -1,8 +1,10 @@
 import { Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import './CategoryItem.css';
 
 const CategoryItem = ({ item }) => {
+  const { category, usarUnaVez2 } = useContext(ProductsContext);
   const [goToPage, setGoToPage] = useState(false);
   const handleOfClick = () => {
     setGoToPage(true);
@@ -13,8 +15,8 @@ const CategoryItem = ({ item }) => {
       style={{ backgroundImage: `url(${item?.image})` }}
       onClick={handleOfClick}
     >
-      <p className="categoryTitle">{item?.title}</p>
-      {goToPage && <Navigate to={`/category/${item.title}`} />}
+      <p className="categoryTitle">{item?.name}</p>
+      {goToPage && <Navigate to={`/category/${item?.name}`} />}
     </div>
   );
 };

@@ -6,11 +6,9 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 const CategoryFilteredContainer = ({ categoryId }) => {
   const { datos, cartas } = useContext(ProductsContext);
 
-  const items = datos.filter(dato => dato.title === categoryId);
-
+  const items = datos.filter(dato => dato.category === categoryId);
   return (
     <div className="categoryFilteredContainer">
-      <CarouselGroup cards={cartas} />
       <div className="categoryFilteredItemList">
         {items.map(dato => {
           return <FilteredItem data={dato} key={dato.id} />;

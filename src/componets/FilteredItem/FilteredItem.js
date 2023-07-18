@@ -12,7 +12,7 @@ const FilteredItem = ({ data }) => {
         />
       </div>
       <p>{data.title}</p>
-      <ItemCountSelector maxCount={5} />
+      <ItemCountSelector data={data} />
       <ToDetailButton data={data} />
     </div>
   );

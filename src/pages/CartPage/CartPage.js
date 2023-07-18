@@ -1,7 +1,13 @@
-import React from 'react';
+import Header from '../../componets/Header/Header';
+import CartListContainer from '../../componets/CartListContainer/CartListContainer';
 
 const CartPage = () => {
-  return <div>CartPage</div>;
+  return (
+    <div className="cartPage">
+      <Header />
+      <CartListContainer />
+    </div>
+  );
 };
 
 export default CartPage;
