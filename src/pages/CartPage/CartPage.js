@@ -1,9 +1,16 @@
 import Header from '../../componets/Header/Header';
 import CartListContainer from '../../componets/CartListContainer/CartListContainer';
 import './CartPage.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
 const CartPage = () => {
+  const { cart, acount, sellCart } = useContext(ProductsContext);
+  const [goToLogin, setGoToLogin] = useState(false);
+  const handleBuy = () => {
+    setGoToLogin(true);
+  };
   return (
     <div className="cartPage">
       <Header />
@@ -12,8 +19,13 @@ const CartPage = () => {
         <Link to={'/'}>
           <button className="backToHome">Home </button>
         </Link>
-        <button className="buyProducts">Comprar</button>
+        {cart.length > 0 && (
+          <button className="buyProducts" onClick={handleBuy}>
+            Comprar
+          </button>
+        )}
       </div>
+      {goToLogin && <Navigate to={'/login'} />}
     </div>
   );
 };

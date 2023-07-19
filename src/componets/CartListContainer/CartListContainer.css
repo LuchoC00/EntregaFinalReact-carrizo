@@ -1,5 +1,6 @@
 .cartEmpty {
-  background-image: url('gs://react-carrizo.appspot.com/pngwing.com (1).png');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/react-carrizo.appspot.com/o/pngwing.com%20(1).png?alt=media&token=6843c1ae-dfe4-42e3-83dd-3b23dca066c8');
+  background-size: 100% 100%;
   width: 100%;
-  height: 100vh;
+  height: 75vh;
 }

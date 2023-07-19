@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import CartItem from '../CartItem/CartItem';
+import './CartListContainer.css';
 
 const CartListContainer = () => {
   const { cart } = useContext(ProductsContext);
@@ -27,7 +28,7 @@ const CartListContainer = () => {
             />
           );
         })}
-      {newCart.length === 0 && <div className="cartEmpty"></div>}
+      {cart.length === 0 && <div className="cartEmpty"></div>}
     </div>
   );
 };

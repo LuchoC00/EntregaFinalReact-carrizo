@@ -1,23 +1,20 @@
 import './LoginPage.css';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import { Navigate } from 'react-router-dom';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import TextError from '../../componets/TextError/TextError';
 
 const Login = () => {
-  const { users, createUser, setAcount } = useContext(ProductsContext);
+  const { users, createUser, cart, sellCart, setAcount, goHome, goToHome } =
+    useContext(ProductsContext);
   const [userValue, setUserValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
   const [verEmailValue, setVerEmailValue] = useState('');
   const [userError, setUserError] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [goHome, setGoHome] = useState(false);
   const [isUnregistred, setIsUnregistred] = useState(false);
 
-  const goToHome = () => {
-    setGoHome(true);
-  };
   const userValueChange = e => {
     setUserValue(e.target.value);
   };
@@ -44,19 +41,27 @@ const Login = () => {
   const verUnregister = () => {
     if (unregisterValid(userValue, emailValue, verEmailValue)) {
       createUser({ name: userValue, email: emailValue });
+      if (cart) {
+        sellCart();
+      }
+      goToHome();
     } else {
       getError(userValue, emailValue, verEmailValue);
     }
   };
 
   const verUser = () => {
-    console.log();
-
     if (UserExists(userValue, emailValue)) {
       setAcount({
         name: userValue,
         email: emailValue
       });
+      if (cart) {
+        sellCart({
+          name: userValue,
+          email: emailValue
+        });
+      }
       goToHome();
     } else {
       getError(userValue, emailValue, null);

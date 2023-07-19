@@ -21,24 +21,22 @@ export const ProductsProvier = ({ children }) => {
     );
   });
 
+  const [goHome, setGoHome] = useState(false);
+  const goToHome = () => {
+    setGoHome(true);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (goHome) {
+        setGoHome(false);
+      }
+    }, 500);
+  }, [goHome]);
+
   //cart
 
-  const [cart, setCart] = useState([
-    {
-      title: 'prueba',
-      category: 'electronics',
-      description: 'Este producto es utilizado para pruebas',
-      image: 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg',
-      offer: {
-        name: 'prueba',
-        type: 'discount',
-        value: 100
-      },
-      price: 99,
-      rating: 4.8,
-      stock: 3
-    }
-  ]);
+  const [cart, setCart] = useState([]);
 
   const addToCart = data => {
     setCart(value => [...value, data]);
@@ -86,6 +84,10 @@ export const ProductsProvier = ({ children }) => {
     setUsers(docs);
   };
 
+  useEffect(() => {
+    getAllUsers();
+  }, [goHome]);
+
   const [acount, setAcount] = useState(null);
   const createUser = async userData => {
     const docRef = await addDoc(collection(db, 'users'), {
@@ -104,6 +106,25 @@ export const ProductsProvier = ({ children }) => {
     getAllUsers();
   }, []);
 
+  useEffect(() => {
+    console.log(acount);
+  });
+
+  const sellCart = async user => {
+    let totalPrice = 0;
+    cart.forEach(product => {
+      totalPrice += product.price;
+    });
+    await addDoc(collection(db, 'orders'), {
+      orderPrice: totalPrice,
+      product: cart.map(product => {
+        return product.id;
+      }),
+      username: user.name,
+      usermail: user.email
+    });
+  };
+
   return (
     <ProductsContext.Provider
       value={{
@@ -112,9 +133,12 @@ export const ProductsProvier = ({ children }) => {
         category,
         cart,
         users,
+        goHome,
+        goToHome,
         addToCart,
         createUser,
-        setAcount
+        setAcount,
+        sellCart
       }}
     >
       {children}
