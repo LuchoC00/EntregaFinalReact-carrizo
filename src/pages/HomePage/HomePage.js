@@ -1,36 +1,42 @@
 import Header from '../../componets/Header/Header';
 import SeasonContainer from '../../componets/SeasonContainer/SeasonContainer';
 import CarouselGroup from '../../componets/CarouselGroup/CarouselGroup';
-import { useState, useEffect } from 'react';
+import HomeProductItem from '../../componets/HomeProductItem/HomeProductItem';
+import { useState, useEffect, useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
+import './HomePage.css';
 
 const HomePage = () => {
-  const [datos, setDatos] = useState([]);
+  const { datos, category } = useContext(ProductsContext);
 
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(response => response.json())
-      .then(json => setDatos(json));
-  }, []);
-
-  const cartas = datos.map(dato => {
-    return (
-      <div
-        key={dato.id}
-        style={{
-          backgroundImage: `url(${dato.image})`,
-          backgroundSize: '100% 100%',
-          width: '100%',
-          height: '100%'
-        }}
-      ></div>
-    );
+  const manData = datos.filter(data => {
+    return data.category === category[0].name;
   });
+
+  const womanData = datos.filter(data => {
+    return data.category === category[3].name;
+  });
+
+  const manCarts = manData?.map(dato => {
+    return <HomeProductItem data={dato} />;
+  });
+
+  const womanCarts = womanData?.map(dato => {
+    return <HomeProductItem data={dato} />;
+  });
+
   return (
     <div className="homePage">
       <Header />
       <SeasonContainer />
-      <CarouselGroup cards={cartas} />
-      <CarouselGroup cards={cartas} isUnlockFreeMove={true} />
+      <div className="espCarts">
+        <p className="title">women clothing</p>
+        <CarouselGroup cards={womanCarts} />
+      </div>
+      <div className="espCarts">
+        <p className="title">men clothing</p>
+        <CarouselGroup cards={manCarts} />
+      </div>
     </div>
   );
 };

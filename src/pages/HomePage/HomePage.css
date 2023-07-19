@@ -1,0 +1,12 @@
+.homePage {
+}
+
+.homePage > .espCarts {
+  margin: 0.5rem;
+}
+
+.homePage > .espCarts > .title {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin: 1rem 5rem;
+}

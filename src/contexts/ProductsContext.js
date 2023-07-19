@@ -7,20 +7,6 @@ export const ProductsContext = createContext();
 export const ProductsProvier = ({ children }) => {
   const [datos, setDatos] = useState([]);
 
-  const cartas = datos.map(dato => {
-    return (
-      <div
-        key={dato.id}
-        style={{
-          backgroundImage: `url(${dato.image})`,
-          backgroundSize: '100% 100%',
-          width: '100%',
-          height: '100%'
-        }}
-      ></div>
-    );
-  });
-
   const [goHome, setGoHome] = useState(false);
   const goToHome = () => {
     setGoHome(true);
@@ -41,11 +27,6 @@ export const ProductsProvier = ({ children }) => {
   const addToCart = data => {
     setCart(value => [...value, data]);
   };
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   //firebase
 
   const [category, setCategory] = useState(null);
@@ -106,10 +87,6 @@ export const ProductsProvier = ({ children }) => {
     getAllUsers();
   }, []);
 
-  useEffect(() => {
-    console.log(acount);
-  });
-
   const sellCart = async user => {
     let totalPrice = 0;
     cart.forEach(product => {
@@ -129,7 +106,6 @@ export const ProductsProvier = ({ children }) => {
     <ProductsContext.Provider
       value={{
         datos,
-        cartas,
         category,
         cart,
         users,

@@ -3,10 +3,16 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 1rem;
 }
 
 .seasonContainer > .newSeasons {
   width: 60%;
+  background-image: url(https://firebasestorage.googleapis.com/v0/b/react-carrizo.appspot.com/o/Rebajas-de-invierno.jpg?alt=media&token=1392269f-2786-42dd-bbaf-f334a56e32f4);
+  background-size: 100% 100%;
+  width: 60%;
+  height: 20rem;
+  border: 2px solid gray;
 }
 
 .seasonContainer > .seasonOffersContainer {

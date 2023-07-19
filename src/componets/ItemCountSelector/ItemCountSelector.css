@@ -1,0 +1,16 @@
+.itemsCountSelector {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+}
+
+.itemsCountSelector > .selectorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.itemsCountSelector button {
+  cursor: pointer;
+}

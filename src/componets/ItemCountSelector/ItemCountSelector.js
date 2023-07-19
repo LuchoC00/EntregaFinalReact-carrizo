@@ -4,6 +4,7 @@ import { TextField } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useState, useContext, useEffect } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
+import './ItemCountSelector.css';
 
 const ItemCountSelector = ({ data }) => {
   const [itemsCount, setItemsCount] = useState(0);

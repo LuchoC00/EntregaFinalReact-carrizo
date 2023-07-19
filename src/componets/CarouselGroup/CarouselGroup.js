@@ -72,7 +72,6 @@ const CarouselGroup = ({
                 key={`card:${index}`}
                 style={{
                   width: `${cardWidth}%`,
-                  height: `${100}px`,
                   left: `${moveValue + (cardWidth + cardGap) * index}%`
                 }}
               >

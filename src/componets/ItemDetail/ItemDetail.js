@@ -1,8 +1,8 @@
+import './ItemDetail.css';
 import ItemCountSelector from '../ItemCountSelector/ItemCountSelector';
 import { Link } from 'react-router-dom';
-import './FilteredItem.css';
 
-const FilteredItem = ({ data }) => {
+const ItemDetail = ({ data }) => {
   return (
     <div className="filteredItem">
       <div className="itemImg">
@@ -19,4 +19,4 @@ const FilteredItem = ({ data }) => {
   );
 };
 
-export default FilteredItem;
+export default ItemDetail;
