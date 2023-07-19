@@ -4,6 +4,7 @@
   align-items: center;
   background-color: rgba(200, 200, 200, 0.5);
   height: 3.5rem;
+  box-sizing: border-box;
 }
 .navBar .navBarLogo > * {
   color: black;

@@ -6,7 +6,7 @@ import { ProductsContext } from '../../contexts/ProductsContext';
 import TextError from '../../componets/TextError/TextError';
 
 const Login = () => {
-  const { users, createUser, cart, sellCart, setAcount, goHome, goToHome } =
+  const { users, createUser, cart, sellCart, goHome, goToHome } =
     useContext(ProductsContext);
   const [userValue, setUserValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
@@ -42,7 +42,7 @@ const Login = () => {
     if (unregisterValid(userValue, emailValue, verEmailValue)) {
       createUser({ name: userValue, email: emailValue });
       if (cart) {
-        sellCart();
+        sellCart({ name: userValue, email: emailValue });
       }
       goToHome();
     } else {
@@ -52,10 +52,6 @@ const Login = () => {
 
   const verUser = () => {
     if (UserExists(userValue, emailValue)) {
-      setAcount({
-        name: userValue,
-        email: emailValue
-      });
       if (cart) {
         sellCart({
           name: userValue,

@@ -3,7 +3,8 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin: 1rem;
+  margin: 1rem auto;
+  box-sizing: border-box;
 }
 
 .seasonContainer > .newSeasons {

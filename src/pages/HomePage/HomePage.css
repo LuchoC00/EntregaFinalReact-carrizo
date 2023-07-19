@@ -1,4 +1,5 @@
 .homePage {
+  box-sizing: border-box;
 }
 
 .homePage > .espCarts {

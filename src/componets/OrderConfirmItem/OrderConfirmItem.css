@@ -1,0 +1,17 @@
+.orderConfirmItem {
+  background-color: rgba(56, 206, 56, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0.3rem;
+
+  position: fixed;
+  right: 1%;
+  bottom: 2%;
+}
+
+.orderConfirmItem > * {
+  color: rgba(4, 71, 4, 1);
+  font-weight: 600;
+}

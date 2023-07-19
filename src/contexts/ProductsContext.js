@@ -69,13 +69,8 @@ export const ProductsProvier = ({ children }) => {
     getAllUsers();
   }, [goHome]);
 
-  const [acount, setAcount] = useState(null);
   const createUser = async userData => {
     const docRef = await addDoc(collection(db, 'users'), {
-      name: userData.name,
-      email: userData.email
-    });
-    setAcount({
       name: userData.name,
       email: userData.email
     });
@@ -87,12 +82,14 @@ export const ProductsProvier = ({ children }) => {
     getAllUsers();
   }, []);
 
+  const [isOrderIdAviable, setIsOrderIdAviable] = useState(false);
+  const [lastOrderId, setLastOrderId] = useState(null);
   const sellCart = async user => {
     let totalPrice = 0;
     cart.forEach(product => {
       totalPrice += product.price;
     });
-    await addDoc(collection(db, 'orders'), {
+    const docRef = await addDoc(collection(db, 'orders'), {
       orderPrice: totalPrice,
       product: cart.map(product => {
         return product.id;
@@ -100,6 +97,12 @@ export const ProductsProvier = ({ children }) => {
       username: user.name,
       usermail: user.email
     });
+    setCart([]);
+    setLastOrderId(docRef.id);
+    setIsOrderIdAviable(true);
+    setTimeout(() => {
+      setIsOrderIdAviable(false);
+    }, 5000);
   };
 
   return (
@@ -110,10 +113,11 @@ export const ProductsProvier = ({ children }) => {
         cart,
         users,
         goHome,
+        isOrderIdAviable,
+        lastOrderId,
         goToHome,
         addToCart,
         createUser,
-        setAcount,
         sellCart
       }}
     >

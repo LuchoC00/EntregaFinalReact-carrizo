@@ -1,0 +1,74 @@
+.itemDetail {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80vh;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.itemDetail > .itemImg {
+  width: 30%;
+  height: 80%;
+}
+
+.itemDetail > .dataContainer {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.itemDetail > .dataContainer > * {
+  width: 100%;
+}
+
+.itemDetail > .dataContainer > .category {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(100, 100, 100, 0.5);
+}
+
+.itemDetail > .dataContainer > .title {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.itemDetail > .dataContainer > .subtitles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemDetail > .dataContainer > .subtitles > * {
+  margin: auto 1rem;
+}
+
+.itemDetail > .dataContainer > .subtitles > .stock {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(80, 80, 80, 1);
+}
+.itemDetail > .dataContainer > .selector {
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemDetail > .dataContainer > .selector > .price {
+  width: 30%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: rgba(50, 50, 100, 1);
+}
+
+.itemDetail > .dataContainer > .desciption {
+  font-size: 0.9rem;
+  color: rgba(80, 80, 80, 1);
+}

@@ -1,5 +1,6 @@
 .carouselGroup {
   display: flex;
+  box-sizing: border-box;
 }
 
 .carouselGroup > .cardsGroupContainer {

@@ -8,14 +8,16 @@ const CartListContainer = () => {
 
   const newCart = [];
   const cartCount = [];
-  cart.forEach(product => {
-    if (!newCart.includes(product)) {
-      newCart.push(product);
-      cartCount[newCart.length - 1] = 1;
-    } else {
-      cartCount[newCart.indexOf(product)] += 1;
-    }
-  });
+  if (cart) {
+    cart.forEach(product => {
+      if (!newCart.includes(product)) {
+        newCart.push(product);
+        cartCount[newCart.length - 1] = 1;
+      } else {
+        cartCount[newCart.indexOf(product)] += 1;
+      }
+    });
+  }
 
   return (
     <div className="cartListContainer">

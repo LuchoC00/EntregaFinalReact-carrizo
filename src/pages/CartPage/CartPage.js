@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 
 const CartPage = () => {
-  const { cart, acount, sellCart } = useContext(ProductsContext);
+  const { cart } = useContext(ProductsContext);
   const [goToLogin, setGoToLogin] = useState(false);
   const handleBuy = () => {
     setGoToLogin(true);
@@ -19,7 +19,7 @@ const CartPage = () => {
         <Link to={'/'}>
           <button className="backToHome">Home </button>
         </Link>
-        {cart.length > 0 && (
+        {cart && cart.length > 0 && (
           <button className="buyProducts" onClick={handleBuy}>
             Comprar
           </button>

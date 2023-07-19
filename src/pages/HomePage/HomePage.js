@@ -2,12 +2,13 @@ import Header from '../../componets/Header/Header';
 import SeasonContainer from '../../componets/SeasonContainer/SeasonContainer';
 import CarouselGroup from '../../componets/CarouselGroup/CarouselGroup';
 import HomeProductItem from '../../componets/HomeProductItem/HomeProductItem';
+import OrderConfirmItem from '../../componets/OrderConfirmItem/OrderConfirmItem';
 import { useState, useEffect, useContext } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import './HomePage.css';
 
 const HomePage = () => {
-  const { datos, category } = useContext(ProductsContext);
+  const { datos, category, isOrderIdAviable } = useContext(ProductsContext);
 
   const manData = datos.filter(data => {
     return data.category === category[0].name;
@@ -37,6 +38,7 @@ const HomePage = () => {
         <p className="title">men clothing</p>
         <CarouselGroup cards={manCarts} />
       </div>
+      {isOrderIdAviable && <OrderConfirmItem />}
     </div>
   );
 };
