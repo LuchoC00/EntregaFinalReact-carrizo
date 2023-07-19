@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import CartPage from './pages/CartPage/CartPage';
 import LoginPage from './pages/LoginPage/LoginPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import { ProductsProvier } from './contexts/ProductsContext';
@@ -21,7 +20,6 @@ const App = () => {
             <Route exact path="/item" element={<DetailPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </Router>
       </ProductsProvier>

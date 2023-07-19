@@ -1,0 +1,36 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(
+    to left,
+    rgb(224, 190, 253),
+    rgba(119, 91, 143, 0.7)
+  );
+}
+
+.loginContainer > .loginFields {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+  flex-direction: column;
+  height: 50%;
+  width: min(60%, 400px);
+}
+
+.loginContainer > .loginFields > .field {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.loginContainer > .loginFields > .field > .toRegister {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  width: auto;
+  cursor: pointer;
+  color: rgba(43, 43, 121, 0.75);
+  text-decoration: underline;
+}

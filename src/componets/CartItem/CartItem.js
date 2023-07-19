@@ -75,7 +75,7 @@ const CartItem = ({ item }) => {
             </button>
           </div>
           <div className="totalPrice">
-            Precio : {item.data.price * countValue}
+            Precio : ${item.data.price * countValue}
           </div>
         </div>
       </div>

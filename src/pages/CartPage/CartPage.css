@@ -1,0 +1,42 @@
+.cartPage {
+}
+
+.cartPage > .cartButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 20%;
+}
+
+.cartPage > .cartButtons button {
+  width: 20%;
+  height: 5rem;
+  font-weight: normal;
+  font-size: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.15s ease;
+}
+
+.cartPage > .cartButtons button:hover {
+  opacity: 1;
+}
+
+.cartPage > .cartButtons > * {
+  text-decoration: none;
+  color: black;
+}
+
+.cartPage > .cartButtons > * > button {
+  width: 100%;
+  margin: 1rem;
+}
+
+.cartPage > .cartButtons button.backToHome {
+  background-color: rgb(91, 95, 95);
+}
+
+.cartPage > .cartButtons > button.buyProducts {
+  background-color: rgb(179, 189, 190);
+}

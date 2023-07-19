@@ -74,63 +74,35 @@ export const ProductsProvier = ({ children }) => {
     setDatos(docs);
   };
 
+  const [users, setUsers] = useState([]);
+  const getAllUsers = async () => {
+    const q = query(collection(db, 'users'));
+
+    const querySnapshot = await getDocs(q);
+    const docs = [];
+    querySnapshot.forEach(doc => {
+      docs.push({ id: doc.id, ...doc.data() });
+    });
+    setUsers(docs);
+  };
+
+  const [acount, setAcount] = useState(null);
+  const createUser = async userData => {
+    const docRef = await addDoc(collection(db, 'users'), {
+      name: userData.name,
+      email: userData.email
+    });
+    setAcount({
+      name: userData.name,
+      email: userData.email
+    });
+  };
+
   useEffect(() => {
     getAllCategory();
     getAllProducts();
+    getAllUsers();
   }, []);
-
-  const getCategory = async category => {
-    const q = query(
-      collection(db, 'category'),
-      where('name', '==', `${category}`)
-    );
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach(doc => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
-    });
-  };
-
-  // todas las funciones que siguen no se ejecutan. Pero lo dejo para que se vea como lo hice
-  const usarUnaVez = async () => {
-    const docRef = await addDoc(collection(db, 'products'), {
-      title: 'prueba',
-      category: 'electronics',
-      description: 'Este producto es utilizado para pruebas',
-      image: 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg',
-      offer: {
-        name: 'prueba',
-        type: 'discount',
-        value: 100
-      },
-      price: 99,
-      rating: 4.8,
-      stock: 3
-    });
-  };
-
-  const usarUnaVez2 = async () => {
-    datos.forEach((dato, index) => {
-      let actualizarDato = {
-        title: dato.title,
-        category: dato.category,
-        description: dato.description,
-        image: dato.image,
-        price: dato.price,
-        rating: dato.rating.rate,
-        stock: dato.rating.count
-      };
-      if (index % 3 === 0) {
-        actualizarDato.offer = {
-          name: 'coldOffers',
-          type: index % 2 === 0 ? 'discount' : 'percent',
-          value: index % 2 === 0 ? 100 : 20
-        };
-      }
-      addDoc(collection(db, 'products'), actualizarDato);
-    });
-  };
 
   return (
     <ProductsContext.Provider
@@ -139,10 +111,10 @@ export const ProductsProvier = ({ children }) => {
         cartas,
         category,
         cart,
-        getCategory,
+        users,
         addToCart,
-        usarUnaVez,
-        usarUnaVez2
+        createUser,
+        setAcount
       }}
     >
       {children}

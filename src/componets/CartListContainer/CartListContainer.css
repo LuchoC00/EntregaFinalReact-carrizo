@@ -1,0 +1,5 @@
+.cartEmpty {
+  background-image: url('gs://react-carrizo.appspot.com/pngwing.com (1).png');
+  width: 100%;
+  height: 100vh;
+}
